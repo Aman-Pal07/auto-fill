@@ -1,0 +1,90 @@
+I want to develop a browser extension for auto-filling job application forms, integrated into a MERN stack (MongoDB, Express.js, React, Node.js) project. The extension should be part of the frontend folder, and running npm run build in the frontend should update and package the extension. The extension should use vanilla JavaScript, while the website should use TypeScript with a dark theme. The extension should detect and auto-fill job application forms on platforms like LinkedIn, Indeed, and generic web forms. The website should manage user data, provide auto-fill options, and include additional features. Below are the detailed requirements:
+
+Extension Functionality:
+Detect job application forms on web pages (e.g., LinkedIn, Indeed, generic career portals) using DOM analysis.
+Auto-fill form fields (e.g., name, email, phone, resume, work experience, education) using data from the backend.
+Support Chrome and Firefox via the WebExtensions API.
+Provide a popup UI for manual auto-fill, editing fields, toggling auto-fill, and viewing detected forms.
+Store extension assets (e.g., manifest.json, content scripts, popup) in the frontend folder (e.g., frontend/extension).
+Ensure running npm run build in the frontend folder updates the extension, outputting compiled assets to a dist/extension folder or similar.
+
+
+Extension Build Integration:
+Place extension source files in frontend/extension (e.g., manifest.json, content.js, popup.html, popup.js).
+Configure the frontend’s build tool (e.g., Vite or Webpack) to:
+Copy extension assets to the build output (e.g., dist/extension).
+Process JavaScript files for the extension, ensuring no TypeScript compilation.
+Update the extension’s manifest.json with correct paths post-build.
+Ensure npm run build generates both the website’s bundled files and the extension’s assets, ready for loading into Chrome/Firefox.
+
+
+Website Functionality:
+Build a React frontend with TypeScript, using a dark theme (via Tailwind CSS or custom CSS).
+Features:
+Profile Management: Input and update personal details (e.g., name, email, phone, resume, work history).
+Auto-Fill Options: Customize auto-fill settings (e.g., enable/disable fields, prioritize data).
+Form History: View a log of filled forms with options to review or reapply data.
+Resume Upload: Store PDF resumes in MongoDB.
+Data Export: Export profile data as JSON or CSV.
+Ensure a responsive, dark-themed UI with high contrast.
+
+Backend:
+Develop a RESTful API with Express.js and TypeScript, using MongoDB for storage.
+Store user profiles, resumes, and form history.
+Implement JWT authentication for security.
+Create endpoints for:
+User profile CRUD operations.
+Resume upload/retrieval.
+Form field mapping and auto-fill data.
+Form history retrieval.
+
+Form Detection and Auto-Fill:
+Use content scripts to detect forms via DOM analysis (e.g., <form> elements with inputs labeled “name,” “email”).
+Support dynamic forms (e.g., LinkedIn’s single-page, Indeed’s multi-step).
+Map user data to form fields, allowing customization via the website or popup.
+
+
+Security and Privacy:
+Encrypt data in transit (HTTPS) and at rest (MongoDB).
+Comply with GDPR/CCPA, allowing data deletion/export.
+Secure resume uploads with access controls.
+
+Build and Development:
+Use Vite for the frontend (React + TypeScript), as it’s lightweight and supports custom build configurations.
+Place extension files in frontend/extension and configure Vite to copy/process them during npm run build.
+Use JavaScript for extension files, TypeScript for website and backend.
+Provide documentation for:
+Setting up the MERN stack environment.
+Running the website and backend locally.
+Testing the extension after building.
+
+
+Testing and Distribution:
+Test the extension by loading the dist/extension folder in Chrome (Developer mode > Load unpacked) and Firefox (about:debugging > Load Temporary Add-on).
+Verify form detection and auto-fill on sample job forms (e.g., LinkedIn, Indeed).
+Test the website’s dark theme, profile management, and API connectivity.
+Provide steps to package the extension (e.g., zip for Chrome, web-ext for Firefox) and submit to Chrome Web Store/Firefox Add-ons.
+
+
+Deliverables:
+A MERN stack project with the extension in frontend/extension.
+A Vite configuration that builds both the website and extension via npm run build.
+A dark-themed React website with TypeScript.
+A backend API with TypeScript.
+A sample user profile dataset for testing.
+An artifact containing the extension’s manifest.json, content script, popup UI, and Vite configuration, wrapped in the required format.
+
+Deliverables:
+A MERN stack project with the extension in frontend/extension.
+A Vite configuration that builds both the website and extension via npm run build.
+A dark-themed React website with TypeScript.
+A backend API with TypeScript.
+A sample user profile dataset for testing.
+An artifact containing the extension’s manifest.json, content script, popup UI, and Vite configuration, wrapped in the required format.
+
+
+Backend:
+Initialize a Node.js project with TypeScript, Express.js, and Mongoose.
+Set up MongoDB locally or via MongoDB Atlas.
+Create models for users, profiles, and form history.
+Implement JWT authentication and file upload (multer).

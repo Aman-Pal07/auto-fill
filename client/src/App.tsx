@@ -11,10 +11,16 @@ import FormHistory from "@/pages/FormHistory";
 import ExtensionSettings from "@/pages/ExtensionSettings";
 import ExtensionInstall from "@/pages/ExtensionInstall";
 import Help from "@/pages/Help";
+import Auth from "./pages/Auth";
 
 function Router() {
   return (
     <Switch>
+      <Route path="/login" component={() => <Auth defaultMode="login" />} />
+      <Route
+        path="/register"
+        component={() => <Auth defaultMode="register" />}
+      />
       <Route path="/" component={Dashboard} />
       <Route path="/profile" component={Profile} />
       <Route path="/resumes" component={Resumes} />
